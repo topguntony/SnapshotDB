@@ -1,4 +1,4 @@
-LearningZoneLogger::Application.routes.draw do
+SnapshotDB::Application.routes.draw do
   
   resource :rise_and_shine
   

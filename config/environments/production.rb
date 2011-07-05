@@ -1,4 +1,4 @@
-LearningZoneLogger::Application.configure do
+SnapshotDB::Application.configure do
   
   # Use SSL encryption on Heroku
   # Turn off if using on local network
