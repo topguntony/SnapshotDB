@@ -20,7 +20,7 @@
     h1 .small { font-size: 0.4em; }
     h1 a { text-decoration: none }
     h2 { font-size: 1.5em; color: #090601; }
-    h3 { text-align: center; color: #090601; }
+    h3 { color: #090601; }
     a { color: #090601; }
     .description { font-size: 1.2em; margin-bottom: 30px; margin-top: 30px; font-style: italic;}
     .download { float: right; }
@@ -68,18 +68,18 @@
 
 
    <h3>Heroku</h3>
-<code>
+<code><pre>
 git push
 heroku console
 heroku rake db:schema:load
 heroku rake db:seed
-</code>
+</pre></code>
 
 <h3>Own server</h3>
-<code>
+<code><pre>
 bundle exec rake db:schema:load
 bundle exec rake db:seed
-</code>
+</pre></code>
 
 <h2>Taking database backups</h2>
 
