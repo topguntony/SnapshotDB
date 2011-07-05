@@ -1,0 +1,15 @@
+-title "Exclusions"
+-tab "dashboard"
+
+%table.tablesorter.sortable
+  %thead
+    %tr
+      %th Student
+      %th Date
+      %th Length
+      %th Effective Dates
+      %th Reason
+  %tbody=render @exclusions
+
+-content_for :sidebar do
+  =render 'sidebar'

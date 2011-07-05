@@ -1,0 +1,26 @@
+-title @staff.name
+-tab "staff"
+
+
+  
+-cache([@staff, "on_calls"]) do
+  %h3 On Calls - SIMS
+  -unless @on_calls.exists?
+    =render :template => 'shared/none_recorded'
+  -else
+    %table.tablesorter.sortable
+      %thead
+        %tr
+          %th Student
+          %th Date
+          %th Period
+          %th Lesson
+          %th Staff
+      %tbody
+        =render @on_calls
+          
+
+-content_for :breadcrumbs do
+  =link_to "Staff", staff_index_path
+  >
+  =@staff.name

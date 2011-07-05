@@ -1,0 +1,13 @@
+-title "Staff"
+-tab "staff"
+
+
+-cache("staff-on-calls", :expires_in => 45.minutes) do
+  %table.tablesorter.sortable
+    %thead
+      %tr
+        %th Last Name
+        %th First Name
+        %th On Calls
+    %tbody
+      =render :partial => "staff/staff", :collection => @staff

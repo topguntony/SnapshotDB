@@ -1,0 +1,33 @@
+-title "#{h @student.name} Hours Per Week By Reason"
+-tab "year_group"
+
+#hours_chart.chart
+  
+-cache([@student, controller.action_name], :expires_in => 45.minutes) do
+  :erb
+    <script>
+      var Graph = {
+        title:"<%= @student.name %> Hours Per Week By Reason",
+        units:'Hours',
+        labels:<%= dates_for_chart %>,
+        series:[
+          <% for reason in @reasons do %>
+            {
+              name:"<%= reason.code %>",
+              data:<%= sessions_to_chart_array(@sessions.where('reason_id = ?', reason.id)) %>,
+              color:"<%= reason.color %>"
+            },
+          <% end %>
+        ]
+      }
+    </script>
+-content_for :breadcrumbs do
+  =link_to "Year Groups", year_groups_path
+  >
+  =link_to @student.year_group.name, year_group_path(@student.year_group)
+  >
+  =link_to @student.name, student_path
+  > Hours Per Week By Reason
+-content_for :sidebar do
+  =render 'sidebar'
+  =render 'reason_key'

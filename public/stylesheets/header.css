@@ -1,0 +1,30 @@
+body.dashboard li.dashboard a, body.year_group li.year_group a, body.staff li.staff a, body.users li.users a, body.import li.import a {
+  background: #e9e9e9;
+  font-weight: bold;
+  color: #333333 !important; }
+
+#header {
+  width: 100%;
+  background: maroon;
+  color: white;
+  float: left; }
+  #header ul {
+    float: left;
+    width: 100%; }
+  #header li {
+    float: left;
+    list-style: none;
+    margin-top: 10px; }
+    #header li.logout {
+      float: right;
+      font-weight: bold;
+      background: #e9e9e9; }
+      #header li.logout a {
+        color: black; }
+  #header a {
+    color: white;
+    text-decoration: none;
+    padding: 7px 8px;
+    float: left; }
+  #header a:hover {
+    color: white; }

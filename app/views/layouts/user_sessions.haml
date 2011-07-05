@@ -1,0 +1,17 @@
+!!!
+%html
+  %head
+    =include_stylesheets :common
+    %title=raw "#{yield:title} - SnapShot DB &copy; George Drummond 2011"
+  %body
+    -if flash[:error] || @user.errors.any?
+      #error
+        =flash[:error]
+        -if @user.errors.any?
+          %ul
+            -@user.errors.full_messages.each do |msg|
+              %li= msg
+              
+    %h1#logo SnapShot
+    =yield
+    =render :partial => 'layouts/tracking'

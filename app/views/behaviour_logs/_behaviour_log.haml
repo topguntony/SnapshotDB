@@ -1,0 +1,6 @@
+%tr[behaviour_log]
+  %td=link_to_unless_current behaviour_log.student.name, student_path(behaviour_log.student)
+  %td=behaviour_log.date.to_s(:short)
+  %td=behaviour_log.period
+  %td=behaviour_log.location.name
+  %td=link_to_unless_current behaviour_log.staff.name, staff_path(behaviour_log.staff)

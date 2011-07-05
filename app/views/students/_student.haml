@@ -1,0 +1,10 @@
+%tr[student]
+  %td=link_to student.last_name, student_path(student)
+  %td=link_to student.first_name, student_path(student)
+  %td
+    -if student.free_school_meals?
+      Yes
+  %td=student.gender
+  %td=student.ethnicity.name
+  %td=student.sessions.size unless student.sessions.size == 0
+  %td=student.behaviour_logs.on_call.count unless student.behaviour_logs.on_call.count == 0

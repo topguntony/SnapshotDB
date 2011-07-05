@@ -1,0 +1,17 @@
+-title "Users"
+-tab "users"
+
+%h3 All Users
+%table.tablesorter.sortable
+  %thead
+    %tr
+      %th Email
+      %th Login Count
+      %th Last Login IP
+      %th Current IP
+      %th Delete
+    
+  %tbody=render @users
+  
+-content_for :sidebar do
+  =link_to "New User", new_user_path, :class => [:big, :primary, :button]

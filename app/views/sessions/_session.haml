@@ -1,0 +1,11 @@
+-student = Student.find(student_id)
+-sessions = student.sessions.where(:date => date)
+%tr{:id => "student_#{student.id}_#{date.to_time.to_i}"}
+  %td=link_to student.name, student_path(student)
+  %td=student.year_group.name
+  -periods = [0, 0, 0, 0, 0]
+  -for session in sessions do
+    -periods.delete_at session.period-1
+    -periods.insert session.period-1, session.reason_id
+  -periods.each do |period|
+    %td{:class => "period reason_#{period}"}= 1 if period!= 0

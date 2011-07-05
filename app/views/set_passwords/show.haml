@@ -1,0 +1,17 @@
+-title "Set Your Password"
+#login_container
+  #login_box
+    %h1 Please Create A Password
+
+    #login_form
+      .content
+        -form_for :user, @user, :html => {:method => :put} do |f|
+          .row{:style => "color:red;font-weight:bold"}=@user.email
+          .row
+            =f.label :password
+            =f.password_field :password
+          .row
+            =f.label :password_confirmation
+            =f.password_field :password_confirmation
+            .row=f.submit "Sign In", :class => [:button, :big, :primary]
+    

@@ -1,0 +1,36 @@
+-title "#{@year_group.name} Students Per Week By Reason"
+-tab "year_group"
+
+#hours_chart.chart
+.explanation
+  %h4 Are there more students in this graph than for ethnicity/gender?
+  %p The reason for this is a student can only come in <b>ONCE</b> for gender and ethnicity, but can come in for <b>MANY</b> different reasons in a week.
+
+
+-cache([@year_group, controller.action_name], :expires_in => 45.minutes) do
+  :erb
+    <script>
+      var Graph = {
+        title:'<%= @year_group.name %> Students Per Week By Reason',
+        units:'Students',
+        labels:<%= dates_for_chart %>,
+        series:[
+          <% for reason in @reasons do %>
+            {
+              name:"<%= reason.code %>",
+              data:<%= reason_count_to_chart_array(@sessions, reason.id) %>,
+              color:"<%= reason.color %>"
+            },
+          <% end %>
+          ]
+        }
+      </script>
+
+-content_for :breadcrumbs do
+  =link_to "Year Groups", year_groups_path
+  >
+  =link_to @year_group.name, year_group_path
+  > Students Per Week By Reason
+
+-content_for :sidebar do
+  =render 'sidebar'

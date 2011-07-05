@@ -1,0 +1,4 @@
+%tr[staff]
+  %td=link_to staff.last_name, staff_path(staff)
+  %td=link_to staff.first_name, staff_path(staff)
+  %td=staff.behaviour_logs.on_call.count unless staff.behaviour_logs.on_call.count == 0

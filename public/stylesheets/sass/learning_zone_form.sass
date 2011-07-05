@@ -1,0 +1,95 @@
+#show_lz_form
+  :float left
+  :margin-bottom 30px
+
+#learning_zone_form
+  :float left
+  :width 100%
+  :background #ffffff
+  :margin-bottom 10px
+  :display none
+  //:border 1px solid #ccc
+  input[type="checkbox"]
+    :display none
+  input[type="checkbox"] + label
+    :cursor pointer
+    :float left
+    :width 20px
+    :height 20px
+    :background url(/images/delete.png)
+    :padding 0
+    :margin-top 4px
+    :display inline-block
+  #left
+    :float left
+    :width 70%
+  #right
+    :float left
+    :width 30%
+  #done
+    :float left
+    :font-size 16px
+    :margin 25px 10px 20px 10px
+    :display none
+    :color green
+    :font-weight bold
+    //:background url(/images/done.png)
+  #cancel
+    :float left
+    :cursor pointer
+    :margin 20px
+    &:hover
+      :text-decoration underline
+  
+  #date
+    :padding 20px
+  .row
+    :float left
+    :width 100%
+    .label
+      :padding 6px 0
+      :font-weight bold
+      :float left
+  .year_group,.student
+    :float left
+    :padding 10px 0 10px 30px
+  select
+    :float left
+    :padding 3px
+    :font-size 18px
+  select#student
+    :width 400px
+  #student_info
+    :float left
+    :width 100%
+    :margin-top 20px
+    :padding-bottom 20px
+    :border-bottom 1px dashed #ccc
+  #footer
+    :float left
+    :width 100%
+    :margin 0
+  .form_periods
+    :float left
+    :width 100%
+    :padding 10px 0
+    :border-bottom 1px dashed #ccc
+
+  .number
+    :float left
+    :font-size 24px
+    :font-weight bold
+    :width 50px
+    :text-align center
+  .reason,.staff
+    :float left
+    :margin-right 30px
+
+
+  #spinner
+    :float right
+    :background url(/images/spinner.gif)
+    :height 32px
+    :width 32px
+    :margin 20px
+    :display none

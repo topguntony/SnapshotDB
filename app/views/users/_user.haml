@@ -1,0 +1,6 @@
+%tr[user]
+  %td=user.email
+  %td=user.login_count
+  %td=user.last_login_ip
+  %td=user.current_login_ip
+  %td=button_to "Delete", { :action => :destroy, :id => user.id }, :method => :delete, :style => "margin:0", :class => [:button, :danger]

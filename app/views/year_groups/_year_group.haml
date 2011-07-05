@@ -1,0 +1,5 @@
+%tr[year_group]
+  %td=link_to year_group.name, year_group_path(year_group)
+  %td=year_group.students.count
+  %td=Session.joins(:student).where(:students => {:year_group_id => year_group.id}).count
+  %td=BehaviourLog.joins(:student).where(:students => {:year_group_id => year_group.id}).on_call.count       

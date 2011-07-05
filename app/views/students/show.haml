@@ -1,0 +1,52 @@
+-title "#{h @student.name}"
+-tab "year_group"
+
+-cache([@student, "student_view_list"]) do
+  %h3 On Calls - SIMS
+  -unless @on_calls.exists?
+    =render :template => 'shared/none_recorded'
+  -else
+    %table.tablesorter.sortable
+      %thead
+        %tr
+          %th Student
+          %th Date
+          %th Period
+          %th Lesson
+          %th Staff
+      %tbody=render @on_calls
+  %h3 Learning Zone Register
+  -unless @sessions.exists?
+    =render :template => 'shared/none_recorded'
+  -else
+    %table.tablesorter.learning_zone
+      %thead
+        %tr
+          %th Date
+          %th Period 1
+          %th Period 2
+          %th Period 3
+          %th Period 4
+          %th Period 5
+      %tbody
+        -@days.each do |day, count|
+          %tr[day]
+            -periods = [0, 0, 0, 0, 0]
+            -for session in @sessions.where(:date => day) do
+              -periods.delete_at session.period-1
+              -periods.insert session.period-1, session.reason_id
+            %td=day.to_s(:long)
+            -periods.each do |period|
+              %td{:class => "period reason_#{period}"}= 1 if period!= 0
+
+-content_for :breadcrumbs do
+  =link_to "Year Groups", year_groups_path
+  >
+  =link_to @student.year_group.name, year_group_path(@student.year_group)
+  >
+  =@student.name
+
+                  
+-content_for :sidebar do
+  =render 'sidebar'
+  =render 'reason_key'

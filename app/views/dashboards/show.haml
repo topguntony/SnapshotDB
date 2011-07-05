@@ -1,0 +1,66 @@
+-title "Dashboard"
+-tab "dashboard"
+
+-if can_register?
+  -content_for :below_breadcrumbs do
+    #learning_zone_form
+      =form_tag "", {:remote => true, :id => "learning_zone_data_entry"} do
+        #right
+          #date
+          =hidden_field_tag :hidden_date
+        #left
+          #student_info
+            .row
+              .label Year Group
+              .year_group=select_tag "year_group", options_from_collection_for_select(YearGroup.all, :id, :name), :include_blank => true
+            .row
+              .label Student
+              .student=select_tag "student_here", nil, :id => "student"
+          -[1,2,3,4,5].each do |n|
+            .form_periods
+              =hidden_field_tag "period[#{n}][id]"
+              =hidden_field_tag "period[#{n}][date]", nil, :class => "the_date"
+              =hidden_field_tag "period[#{n}][period]", n.to_i
+              .number=n
+              .reason=select_tag "period[#{n}][reason_id]", options_from_collection_for_select(Reason.all, :id, :name), :include_blank => true, :class => "resetable"
+              .staff=select_tag "period[#{n}][referrer_id]", options_from_collection_for_select(Staff.referrer, :id, :name), :include_blank => true, :class => "resetable"
+              .delete
+                <input id="period_#{n}__destroy" type="checkbox" name="period[#{n}][_destroy]" data-row="period_#{n}" value="1"></input>
+                <label for="period_#{n}__destroy"> </label>
+  
+      
+        #footer
+          #cancel{:class => [:button, :big]} Cancel
+          =submit_tag "Save Register", :class => [:button, :primary, :big]
+          #done Student was saved
+      #spinner
+
+  
+- days = Session.where(:date => 30.days.ago..Date.today).group('date', 'student_id').count.inspect
+
+-Date.today.downto(7.days.ago.to_date) do |date|
+  -unless date.wday == 6 || date.wday == 0 # dont show for sat or sun
+    %h3=date.strftime("%a %e %B  %Y")
+      
+    -students = Session.where(:date => date).group(:student_id).count
+    
+    %table.tablesorter
+      %thead
+        %tr
+          %th Student
+          %th Year Group
+          %th Period 1
+          %th Period 2
+          %th Period 3
+          %th Period 4
+          %th Period 5
+          %tbody{:id => "date_#{date.to_time(:utc).to_i}"}
+            -students.each do |student, count|
+              =render :partial => "sessions/session", :locals => {:student_id => student, :date => date}
+  
+
+-content_for :sidebar do
+  -if can_register?
+    #show_lz_form{:class => [:big, :button, :primary], :alt => "Shortcut: ctrl + f"} Take Registration
+  =render 'sidebar'
+  =render 'students/reason_key'

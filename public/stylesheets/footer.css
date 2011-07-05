@@ -1,0 +1,9 @@
+#footer {
+  float: left;
+  width: 100%;
+  text-align: center;
+  margin: 30px 0;
+  color: #666666;
+  font-size: 14px; }
+  #footer p {
+    margin: 10px 0; }

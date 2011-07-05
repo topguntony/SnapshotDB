@@ -1,0 +1,8 @@
+%ul
+  %li=link_to_unless_current @student.name, student_path
+
+
+%h3 Learning Zone
+%ul
+  %li=link_to_unless_current "Hours Per Week", hours_per_week_by_reason_student_path
+  %li=link_to_unless_current "Hours Per Period", hours_per_period_by_reason_student_path

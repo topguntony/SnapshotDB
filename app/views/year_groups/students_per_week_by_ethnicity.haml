@@ -1,0 +1,23 @@
+-title "#{@year_group.name} Students Per Week By Ethnicity"
+-tab "year_group"
+
+  
+#hours_chart.chart
+  
+-cache([@year_group, controller.action_name], :expires_in => 45.minutes) do
+  :javascript
+    var Graph = {
+      title:'#{@year_group.name} Students Per Week By Ethnicity',
+      units:'Students',
+      labels:#{dates_for_chart},
+      series:#{totals_per_week_group_ethnicities(@year_group, @ethnicities)}
+     }
+
+-content_for :breadcrumbs do
+  =link_to "Year Groups", year_groups_path
+  >
+  =link_to @year_group.name, year_group_path
+  > Students Per Week By Ethnicity
+  
+-content_for :sidebar do
+  =render 'sidebar'

@@ -1,0 +1,18 @@
+-title "Login"
+#login_container
+  #login_box
+    %h1 Please Login
+    #login_form
+      .content
+        -form_for @user do |f|
+          .row
+            =f.label :email
+            =f.text_field :email
+  
+          .row
+            =f.label :password
+            =f.password_field :password
+    
+          .row=f.submit "Login", :class => [:button, :big, :primary]
+    %p SnapShot Behaviour System 1.0
+    %p=raw "&copy; George Drummond 2011"

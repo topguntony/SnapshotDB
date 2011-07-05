@@ -1,0 +1,41 @@
+!!!
+%html
+  %head
+    %title=raw "#{yield:title} - SnapShot DB &copy; George Drummond 2011"
+    =include_stylesheets :common
+    %body{:class => content_for(:tab)}
+      #header
+        .padding
+          %ul
+            %li.dashboard=link_to "Dashboard", dashboard_path
+            %li.year_group=link_to "Students", year_groups_path
+            %li.staff=link_to "Staff", staff_index_path
+            -if current_user.admin?
+              %li.import=link_to "Import", import_on_calls_path
+              %li.users=link_to "Users", users_path
+            %li.logout=link_to "Logout", logout_path
+      .padding
+        -if flash[:notice]
+          #notice=flash[:notice]
+        %h2=yield:title
+        -if yield:breadcrumbs
+          #breadcrumbs=yield:breadcrumbs
+        =yield:below_breadcrumbs
+        #main
+          .padding=yield
+        #sidebar
+          .padding-left
+            =yield:sidebar
+            #data_sources
+              %h4 About this data
+              %p <b>Learning zone</b> registrations are added and updated in real time. You will see changes as they are input into the system. Data starts from <b>10th Jan 2011</b>
+              %p <b>On call</b> data is extracted from SIMS on a daily basis and imported by George Drummond. Data can be up to 2 days old. Data starts from <b>28th Feb 2011</b>
+
+        #footer
+          %p Licensed to Hainault Forest High School
+          %p &copy; George Drummond, 2011. All rights reserved
+      =include_javascripts :app, :charting
+      =yield:javascript
+      =render :partial => 'layouts/tracking'
+      #loading
+

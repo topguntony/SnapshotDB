@@ -1,0 +1,12 @@
+%table
+  %tr
+    %th Student
+    %th Lesson
+    %th Location
+    %th Staff
+  -for log in @logs.behaviour_logs do
+    %tr
+      %td=log.student.name
+      %td=log.period
+      %td=log.location.name
+      %td=log.staff.name

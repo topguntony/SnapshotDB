@@ -1,0 +1,89 @@
+#show_lz_form {
+  float: left;
+  margin-bottom: 30px; }
+
+#learning_zone_form {
+  float: left;
+  width: 100%;
+  background: white;
+  margin-bottom: 10px;
+  display: none; }
+  #learning_zone_form input[type="checkbox"] {
+    display: none; }
+  #learning_zone_form input[type="checkbox"] + label {
+    cursor: pointer;
+    float: left;
+    width: 20px;
+    height: 20px;
+    background: url(/images/delete.png);
+    padding: 0;
+    margin-top: 4px;
+    display: inline-block; }
+  #learning_zone_form #left {
+    float: left;
+    width: 70%; }
+  #learning_zone_form #right {
+    float: left;
+    width: 30%; }
+  #learning_zone_form #done {
+    float: left;
+    font-size: 16px;
+    margin: 25px 10px 20px 10px;
+    display: none;
+    color: green;
+    font-weight: bold; }
+  #learning_zone_form #cancel {
+    float: left;
+    cursor: pointer;
+    margin: 20px; }
+    #learning_zone_form #cancel:hover {
+      text-decoration: underline; }
+  #learning_zone_form #date {
+    padding: 20px; }
+  #learning_zone_form .row {
+    float: left;
+    width: 100%; }
+    #learning_zone_form .row .label {
+      padding: 6px 0;
+      font-weight: bold;
+      float: left; }
+  #learning_zone_form .year_group, #learning_zone_form .student {
+    float: left;
+    padding: 10px 0 10px 30px; }
+  #learning_zone_form select {
+    float: left;
+    padding: 3px;
+    font-size: 18px; }
+  #learning_zone_form select#student {
+    width: 400px; }
+  #learning_zone_form #student_info {
+    float: left;
+    width: 100%;
+    margin-top: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px dashed #cccccc; }
+  #learning_zone_form #footer {
+    float: left;
+    width: 100%;
+    margin: 0; }
+  #learning_zone_form .form_periods {
+    float: left;
+    width: 100%;
+    padding: 10px 0;
+    border-bottom: 1px dashed #cccccc; }
+  #learning_zone_form .number {
+    float: left;
+    font-size: 24px;
+    font-weight: bold;
+    width: 50px;
+    text-align: center; }
+  #learning_zone_form .reason, #learning_zone_form .staff {
+    float: left;
+    margin-right: 30px; }
+  #learning_zone_form #spinner {
+    float: right;
+    background: url(/images/spinner.gif);
+    height: 32px;
+    width: 32px;
+    margin: 20px;
+    display: none; }

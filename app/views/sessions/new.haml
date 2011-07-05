@@ -1,0 +1,16 @@
+-tab "year_group"
+-title "Record Learning Zone Sessions For #{@student.name}"
+
+%h2 Record LZ Time For #{@student.name}
+#breadcrumbs
+  =link_to "Students", students_path
+  >
+  =link_to @student.year_group.name
+  >
+  =link_to @student.name, student_path(@student)
+  > Record Sessions
+  
+#main
+  %p Date
+  =text_field_tag "date", Date.today.to_s(:long)
+  #lessons

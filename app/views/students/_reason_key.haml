@@ -1,0 +1,12 @@
+#reason_key
+  -for reason in Reason.all do
+    .row
+      %div{:class => "reason reason_#{reason.id}"}
+      .description=reason.name
+      
+:erb
+  <style>
+  <% for reason in Reason.all do %>
+    .reason_<%= reason.id %>{background-color:<%= reason.color %> !important}
+  <% end %>
+  </style>

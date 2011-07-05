@@ -1,0 +1,25 @@
+-title "#{@year_group.name} Students Per Week By Gender"
+-tab "year_group"
+
+#hours_chart.chart
+
+-cache([@year_group, controller.action_name], :expires_in => 45.minutes) do
+  :javascript
+    var Graph = {
+      title:'#{@year_group.name} Students Per Week By Gender',
+      units:'Students',
+      labels:#{dates_for_chart},
+      series:[
+        {name:"Male", data:#{gender_count_to_chart_array @sessions, 'M'}},
+        {name:"Female", data:#{gender_count_to_chart_array @sessions, 'F'}}
+      ]
+    };
+
+-content_for :breadcrumbs do
+  =link_to "Year Groups", year_groups_path
+  >
+  =link_to @year_group.name, year_group_path
+  > Students Per Week By Gender
+
+-content_for :sidebar do
+  =render 'sidebar'

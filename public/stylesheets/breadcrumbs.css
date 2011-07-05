@@ -1,0 +1,7 @@
+#breadcrumbs {
+  float: left;
+  width: 100%;
+  font-weight: bold;
+  margin-top: 20px; }
+  #breadcrumbs a {
+    text-decoration: none; }

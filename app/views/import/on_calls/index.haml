@@ -1,0 +1,20 @@
+-tab "import"
+-title "Import On Call Data"
+
+
+%table.sortable.tablesorter
+  %thead
+    %tr
+      %th Date
+      %th Number of Records
+  %tbody
+    -for import in @imports do
+      %tr[import]
+        %td=link_to import.created_at.to_s(:long), import_on_call_path(import)
+        %td=import.behaviour_logs.count
+          
+
+-content_for :sidebar do
+  -form_tag import_on_calls_path, :multipart => true do
+    =file_field_tag "df", :class => [:button, :big, :primary]
+    =submit_tag "Import", :class => [:button, :big, :primary]

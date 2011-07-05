@@ -1,0 +1,6 @@
+%tr[exclusion]
+  %td=link_to_unless_current exclusion.student.name, student_path(exclusion.student)
+  %td=exclusion.date.to_s(:short)
+  %td=exclusion.length
+  %td=exclusion.effective_dates
+  %td=exclusion.reason

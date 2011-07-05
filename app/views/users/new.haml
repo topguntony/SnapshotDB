@@ -1,0 +1,16 @@
+-tab "users"
+-title "New User"
+
+
+-form_for @user do |f|  
+  %p
+    =f.label :email
+    =f.text_field :email
+  %p
+    =f.label :can_register
+    =f.check_box :can_register
+  =f.submit "Create", :class => [:button, :big, :primary]
+  
+-content_for :breadcrumbs do
+  =link_to "Users", users_path
+  > New User

@@ -1,0 +1,22 @@
+embed_assets: false
+
+javascripts:
+  app:
+    - public/javascripts/libs/jquery.min.js
+    - public/javascripts/libs/jquery-ui-1.8.11.custom.min.js 
+    - public/javascripts/libs/jquery_ujs.js 
+    - public/javascripts/libs/jquery.tablesorter.min.js
+    - public/javascripts/libs/jquery.hotkeys.js
+    - public/javascripts/learning_zone_form.js
+    - public/javascripts/application.js
+    - app/views/js_templates/*.jst
+
+
+  charting:
+    - public/javascripts/libs/highcharts.js
+    - public/javascripts/libs/highcharts.exporting.js
+    - public/javascripts/chart.js
+
+stylesheets:
+  common:
+    - public/stylesheets/**/*.css

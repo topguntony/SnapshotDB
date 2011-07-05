@@ -1,0 +1,24 @@
+-title "On Calls"
+-tab "dashboard"
+
+
+  
+- days = Session.where(:date => 30.days.ago..Date.today).group('date', 'student_id').count.inspect
+
+-Date.today.downto(7.days.ago.to_date) do |date|
+  -unless date.wday == 6 || date.wday == 0 # dont show for sat or sun
+    %h3=date.strftime("%a %e %B  %Y")
+      
+    
+    %table.tablesorter.sortable
+      %thead
+        %tr
+          %th Student
+          %th Date
+          %th Period
+          %th Lesson
+          %th Staff
+      %tbody=render @on_calls.where(:date => date)
+
+-content_for :sidebar do
+  =render 'sidebar'

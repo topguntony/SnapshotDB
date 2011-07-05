@@ -1,0 +1,24 @@
+-tab "import"
+-title "On Call Import - #{@import.created_at.to_s(:long)}"
+
+
+%table.tablesorter.sotable
+  %thead
+    %tr
+      %th Student
+      %th Date
+      %th Period
+      %th Lesson
+      %th Staff
+  %tbody
+    =render :collection => @import.behaviour_logs, :partial => "behaviour_logs/behaviour_log"
+    
+
+-content_for :breadcrumbs do
+  =link_to "On Call Imports", import_on_calls_path
+  > #{@import.created_at.to_s(:long)}
+
+-content_for :sidebar do
+  =button_to "Send Out Daily Email For This Day", { :action => :mail, :id => @import.id }, :method => :post, :class => [:button, :big, :primary]
+  =button_to "Delete", { :action => :destroy, :id => @import.id }, :method => :delete, :class => [:button, :big, :primary, :danger]
+  

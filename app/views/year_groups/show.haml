@@ -1,0 +1,24 @@
+-title "#{@year_group.name} Students"
+-tab "year_group"
+
+
+-cache([@year_group, "students_list"]) do
+  %table.tablesorter.sortable
+    %thead
+      %tr
+        %th Last Name
+        %th First Name
+        %th Free School Meals
+        %th Gender
+        %th Ethnicity
+        %th LZ Hours
+        %th On Calls
+    %tbody= render @students
+
+-content_for :breadcrumbs do
+  =link_to "Year Groups", year_groups_path
+  >
+  =@year_group.name
+
+-content_for :sidebar do
+  =render 'sidebar'

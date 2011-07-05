@@ -1,0 +1,24 @@
+<% students = Session.where(:date => @date).group(:student_id).count %>
+
+var data = [];
+data +='new '
+<% students.each do |student, count| %>
+  data += '<%= escape_javascript(render :partial => "sessions/session", :locals => {:student_id => student, :date => @date}) %>';
+<% end %>  
+
+$('tbody#date_<%=@date.to_time(:utc).to_i%>').html(data);
+$('#done').fadeIn('fast').delay(1200).fadeOut('fast');
+
+LearningZoneForm.reset();
+LearningZoneForm.prefillPeriodIds();
+
+<% @student.sessions.reload.where(:date => @date).each do |session| %>
+LearningZoneForm.fillPeriodWithData(<%= session.period %>, <%= session.id %>, 'id', <%= session.id %>);
+LearningZoneForm.fillPeriodWithData(<%= session.period %>, <%= session.id %>, 'referrer_id', <%= session.referrer_id %>);
+LearningZoneForm.fillPeriodWithData(<%= session.period %>, <%= session.id %>, 'reason_id', <%= session.reason_id %>);
+LearningZoneForm.fillPeriodWithData(<%= session.period %>, <%= session.id %>, 'period', <%= session.period %>);
+LearningZoneForm.nameDeleteAttribute(<%= session.period %>, <%= session.id %>);
+LearningZoneForm.renamePeriodDate(<%= session.period %>, <%= session.id %>);
+<% end %>
+
+LearningZoneForm.spinner.stop();

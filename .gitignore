@@ -1,7 +1,14 @@
 .bundle
-.redcar
 db/*.sqlite3
 log/*.log
 tmp/
+.rspec
+
+
+# mac stuff to ignore
+.redcar
 tags
-.DS_Store?
+.DS_Store
+Icon?
+
+._* # thumbnails
