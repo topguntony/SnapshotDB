@@ -1,0 +1,7 @@
+.bundle
+.redcar
+db/*.sqlite3
+log/*.log
+tmp/
+tags
+.DS_Store?
