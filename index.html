@@ -43,21 +43,21 @@
     </div>
 
 <img src="snapshot.png"/>
-<h1> <span class="small">by <a href="http://github.com/georgedrummond">georgedrummond@gmail.com</a></span></h1>
+<h1> <span class="small">by <a href="http://github.com/georgedrummond">George Drummond</a></span></h1>
     <div class="description">
       School behaviour monitoring system
     </div>
 
    <h2>Requirements to run</h2>
-    <p>Snapshot is built using ruby on rails and has a number of requirements to run. It requires Ruby, Rubygems, Rails, a database, git, and I also suggest memcached. Heroku takes care of all of this.</p>
+  <p>Snapshot is built using <a href="http://http//rubyonrails.org/">ruby on rails<a/> and has a number of requirements to run. It requires Ruby, Rubygems, Rails, a database, git, and I also suggest memcached. Heroku takes care of all of this.</p>
 
    <h2>Running on Heroku</h2>
-   <p>The easiest option is to use Heroku as you can deploy the application with a single command. Sign up for a heroku account and follow their deployment documentation here and here. Once deployed please go to the bootstrapping the database section of this guide.</p>
+  <p>The easiest option is to use <a href="http://heroku.com/">Heroku</a> as you can deploy the application with a single command. Sign up for a heroku account and follow their deployment documentation <a href="http://devcenter.heroku.com/articles/creating-apps">here</a> and <a href="http://devcenter.heroku.com/articles/git">here</a>. Once deployed please go to the bootstrapping the database section of this guide.</p>
 
     <h2>Installing in house</h2>
     <p>Running the app in house might sound like a nice idea but it is a lot harder to do than via heroku. If you wish to host it in house you will be required to set up a server (I strongly suggest a Linux server) to run the app. The easiest and most reliable method of installation will probably be via phusion passenger but I dont recommend this for a novice.</p>
 
-    <p>or a choice of database I suggest PostgreSQL. You will need to visit their site for installation and configuration instructions. You will also need to configure the database within the app (see <code>config/database.yml</code>).</p>
+<p>or a choice of database I suggest <a href="http://www.postgresql.org/">PostgreSQL</a>. You will need to visit their site for installation and configuration instructions. You will also need to configure the database within the app (see <code>config/database.yml</code>).</p>
 
 
     <h2>Bootstrapping the Database</h2>
@@ -82,13 +82,13 @@ bundle exec rake db:seed
 
 <h2>Taking database backups</h2>
 
-<p>Heroku makes it very easy to make database backups and the guide for this can be found here.</p>
+<p>Heroku makes it very easy to make database backups and the guide for this can be found <a href="http://devcenter.heroku.com/articles/pgbackups">here</a>.</p>
 
 <p>To run backups on your own server you will need to read up on the documentation provided by the database authors but it shouldnt be too hard to work out.</p>
 
 <h2>Sending Emails</h2>
 
-<p>Snapshot BS sends out a number of emails to users when accounts are created etc. For this I am using postmarkapp and you will need to sign up for an account and obtain an api key which you must enter into <code>config/environments/production.rb</code>.</p>
+<p>Snapshot BS sends out a number of emails to users when accounts are created etc. For this I am using <a href="http://postmarkapp.com/">postmarkapp</a> and you will need to sign up for an account and obtain an api key which you must enter into <code>config/environments/production.rb</code>.</p>
 
 <h2>License</h2>
 
