@@ -16,11 +16,11 @@ The easiest option is to use [Heroku](http://heroku.com) as you can deploy the a
 
 Running the app in house might sound like a nice idea but it is a lot harder to do than via heroku. If you wish to host it in house you will be required to set up a server (I strongly suggest a Linux server) to run the app. The easiest and most reliable method of installation will probably be via [phusion passenger](http://www.modrails.com/) but I dont recommend this for a novice.
 
-For a choice of database I suggest [PostgreSQL](http://www.postgresql.org/). You will need to visit their site for installation and configuration instructions. You will also need to configure the database within the app (see ```config/database.yml```).
+For a choice of database I suggest [PostgreSQL](http://www.postgresql.org/). You will need to visit their site for installation and configuration instructions. You will also need to configure the database within the app (see [```config/database.yml```](https://github.com/georgedrummond/SnapshotDB/blob/master/config/database.yml)).
 
 ## Bootstrapping the Database
 
-Snapshot DB needs a student list and staff list to populate the database before the app can be run. For help with this please see ```db/seed_data/help.txt``` for a guide on how to set up the seed data.
+Snapshot DB needs a student list and staff list to populate the database before the app can be run. For help with this please see [```db/README.markdown```](https://github.com/georgedrummond/SnapshotDB/blob/master/db/README.markdown) for a guide on how to set up the seed data.
 
 Once all this seed data is checked into your repository (run ```git add . && git commit -a -m 'seed data'``` from the command line from the apps root directory) run one of the following commands.
 
